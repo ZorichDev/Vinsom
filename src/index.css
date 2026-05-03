@@ -1,0 +1,351 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Variables ── */
+:root {
+  --background:       #faf9f7;
+  --foreground:       #0f0e0c;
+  --card:             #ffffff;
+  --card-foreground:  #0f0e0c;
+  --primary:          #1a1a2e;
+  --primary-mid:      #16213e;
+  --primary-foreground: #faf9f7;
+  --accent:           #c8a96e;
+  --accent-light:     #e8d5b0;
+  --accent-foreground: #0f0e0c;
+  --secondary:        #f4f1ec;
+  --muted:            #f0ede8;
+  --muted-foreground: #6b6560;
+  --border:           #e8e3dc;
+  --whatsapp:         #25D366;
+  --whatsapp-foreground: #ffffff;
+
+  --shadow-sm:   0 2px 8px rgba(15,14,12,0.06);
+  --shadow-md:   0 8px 32px rgba(15,14,12,0.10);
+  --shadow-lg:   0 20px 60px rgba(15,14,12,0.14);
+  --shadow-xl:   0 40px 100px rgba(15,14,12,0.18);
+  --shadow-gold: 0 8px 40px rgba(200,169,110,0.35);
+  --shadow-gold-lg: 0 20px 80px rgba(200,169,110,0.45);
+
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Base ── */
+@layer base {
+  * { border-color: var(--border); box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: "Outfit", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+  ::selection { background: var(--accent); color: var(--foreground); }
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+/* ── Color utils ── */
+.bg-background  { background-color: var(--background) !important; }
+.bg-card        { background-color: var(--card) !important; }
+.bg-primary     { background-color: var(--primary) !important; }
+.bg-accent      { background-color: var(--accent) !important; }
+.bg-muted       { background-color: var(--muted) !important; }
+.bg-secondary   { background-color: var(--secondary) !important; }
+.bg-whatsapp    { background-color: var(--whatsapp) !important; }
+.text-foreground         { color: var(--foreground) !important; }
+.text-primary            { color: var(--primary) !important; }
+.text-primary-foreground { color: var(--primary-foreground) !important; }
+.text-accent             { color: var(--accent) !important; }
+.text-accent-foreground  { color: var(--accent-foreground) !important; }
+.text-muted-foreground   { color: var(--muted-foreground) !important; }
+.text-whatsapp-foreground{ color: var(--whatsapp-foreground) !important; }
+.text-destructive        { color: #c0392b !important; }
+.border-border           { border-color: var(--border) !important; }
+.fill-accent             { fill: var(--accent) !important; }
+
+/* ── Gradients ── */
+.bg-gradient-hero {
+  background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 55%, #16213e 100%) !important;
+}
+.bg-gradient-gold {
+  background: linear-gradient(135deg, #c8a96e 0%, #e8c97a 50%, #f0d898 100%) !important;
+}
+.bg-gradient-soft {
+  background: linear-gradient(180deg, var(--background) 0%, #f0ede8 100%) !important;
+}
+.bg-gradient-warm {
+  background: linear-gradient(135deg, #c8a96e 0%, #e8d5b0 100%) !important;
+}
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+.text-gradient-gold {
+  background: linear-gradient(135deg, #c8a96e, #f0d898, #c8a96e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+.clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+/* ── Shadows ── */
+.shadow-gold    { box-shadow: var(--shadow-gold) !important; }
+.shadow-gold-lg { box-shadow: var(--shadow-gold-lg) !important; }
+.shadow-card    { box-shadow: var(--shadow-md) !important; }
+.shadow-elegant { box-shadow: var(--shadow-xl) !important; }
+
+/* ── Hover lift ── */
+.hover-lift {
+  transition: transform 0.5s var(--ease-expo), box-shadow 0.5s var(--ease-expo);
+}
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* ── Glass ── */
+.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.glass-dark {
+  background: rgba(15,14,12,0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── Patterns ── */
+.dot-grid {
+  background-image: radial-gradient(rgba(200,169,110,0.2) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.lines-pattern {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(200,169,110,0.07) 0px, rgba(200,169,110,0.07) 1px,
+    transparent 1px, transparent 60px
+  );
+}
+
+/* ── Spacing utils ── */
+.h-18  { height: 4.5rem; }
+.pt-18 { padding-top: 4.5rem; }
+
+/* ── SCROLL REVEAL ──
+   Start visible so content never disappears if JS is slow.
+   JS adds the opacity-0 + translateY once observer is set up. */
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.9s var(--ease-expo), transform 0.9s var(--ease-expo);
+}
+
+/* JS adds .will-animate before observing */
+.will-animate        { opacity: 0; transform: translateY(40px); }
+.will-animate-left   { opacity: 0; transform: translateX(-50px); }
+.will-animate-right  { opacity: 0; transform: translateX(50px); }
+.will-animate-scale  { opacity: 0; transform: scale(0.88); }
+
+.will-animate.visible,
+.will-animate-left.visible,
+.will-animate-right.visible,
+.will-animate-scale.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Delays ── */
+.delay-0    { transition-delay: 0ms;    animation-delay: 0s; }
+.delay-100  { transition-delay: 100ms;  animation-delay: .1s; }
+.delay-150  { transition-delay: 150ms; }
+.delay-200  { transition-delay: 200ms;  animation-delay: .2s; }
+.delay-250  { transition-delay: 250ms; }
+.delay-300  { transition-delay: 300ms;  animation-delay: .3s; }
+.delay-400  { transition-delay: 400ms; }
+.delay-500  { transition-delay: 500ms;  animation-delay: .5s; }
+.delay-600  { transition-delay: 600ms; }
+.delay-700  { transition-delay: 700ms;  animation-delay: .7s; }
+.delay-800  { transition-delay: 800ms; }
+.delay-1000 { transition-delay: 1000ms; }
+
+/* ── Keyframes ── */
+@keyframes fade-up    { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fade-in    { from{opacity:0} to{opacity:1} }
+@keyframes fade-left  { from{opacity:0;transform:translateX(-32px)} to{opacity:1;transform:translateX(0)} }
+@keyframes scale-in   { from{opacity:0;transform:scale(0.88)} to{opacity:1;transform:scale(1)} }
+@keyframes float      { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-20px) rotate(3deg)} }
+@keyframes float-slow { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+@keyframes glow-pulse { 0%,100%{opacity:.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.1)} }
+@keyframes flicker    { 0%,100%{opacity:1} 48%{opacity:1} 50%{opacity:.4} 52%{opacity:1} }
+@keyframes marquee    { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@keyframes spin-slow  { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes shimmer    { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+@keyframes morph-blob {
+  0%,100%{ border-radius:42% 58% 70% 30%/45% 45% 55% 55% }
+  25%    { border-radius:70% 30% 46% 54%/30% 70% 30% 70% }
+  50%    { border-radius:30% 70% 30% 70%/50% 50% 70% 30% }
+  75%    { border-radius:50% 50% 20% 80%/25% 80% 20% 75% }
+}
+@keyframes ping-gold  { 0%{transform:scale(1);opacity:1} 75%,100%{transform:scale(2.4);opacity:0} }
+
+.animate-fade-up    { animation: fade-up    0.9s var(--ease-expo) both; }
+.animate-fade-in    { animation: fade-in    0.8s ease-out both; }
+.animate-fade-left  { animation: fade-left  0.9s var(--ease-expo) both; }
+.animate-scale-in   { animation: scale-in   0.7s var(--ease-expo) both; }
+.animate-float      { animation: float      8s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+.animate-glow       { animation: glow-pulse 4s ease-in-out infinite; }
+.animate-flicker    { animation: flicker    6s ease-in-out infinite; }
+.animate-spin-slow  { animation: spin-slow 20s linear infinite; }
+.animate-morph      { animation: morph-blob 12s ease-in-out infinite; }
+.animate-ping-gold  { animation: ping-gold  1.8s cubic-bezier(0,0,0.2,1) infinite; }
+.animate-marquee    { animation: marquee   40s linear infinite; }
+
+/* ── Shimmer card ── */
+.shimmer-card { position:relative; overflow:hidden; }
+.shimmer-card::before {
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(105deg,transparent 40%,rgba(200,169,110,.1) 50%,transparent 60%);
+  background-size:200% 100%;
+  animation: shimmer 3s linear infinite;
+  pointer-events:none; z-index:1;
+}
+
+/* ── Decorators ── */
+.gold-bar    { display:inline-block; width:40px; height:3px; background:var(--accent); border-radius:2px; }
+.gold-bar-lg { display:inline-block; width:60px; height:4px; background:linear-gradient(90deg,var(--accent),#f0d898); border-radius:2px; }
+
+.section-label {
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:"Outfit",sans-serif; font-size:11px; font-weight:700;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--accent);
+}
+.section-label::before {
+  content:""; display:block; width:28px; height:2px;
+  background:var(--accent); border-radius:1px;
+}
+
+/* ── Marquee ── */
+.marquee-track {
+  display:flex; width:max-content;
+  animation: marquee 38s linear infinite;
+}
+.marquee-track:hover { animation-play-state:paused; }
+
+/* ── Image zoom ── */
+.img-zoom { overflow:hidden; }
+.img-zoom img { transition:transform 0.9s var(--ease-expo); }
+.img-zoom:hover img { transform:scale(1.08); }
+
+/* ── Blob ── */
+.blob {
+  border-radius: 42% 58% 70% 30%/45% 45% 55% 55%;
+  animation: morph-blob 12s ease-in-out infinite;
+}
+
+/* ── Button glow ── */
+.btn-glow { position:relative; transition:all 0.3s ease; }
+.btn-glow::after {
+  content:""; position:absolute; inset:-2px; border-radius:inherit;
+  background:var(--accent); opacity:0; filter:blur(16px);
+  transition:opacity 0.4s ease; z-index:-1;
+}
+.btn-glow:hover::after { opacity:.4; }
+
+/* ── Card ── */
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:1.25rem;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.5s var(--ease-expo);
+}
+.card:hover {
+  border-color:rgba(200,169,110,.3);
+  box-shadow:var(--shadow-lg);
+}
+
+/* ── Product overlay ── */
+.product-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(15,14,12,.9) 0%,transparent 60%);
+  opacity:0; transition:opacity 0.5s ease;
+}
+.group:hover .product-overlay { opacity:1; }
+
+/* ── Stat number ── */
+.stat-number {
+  font-family:"Cormorant Garamond",serif;
+  font-weight:700;
+  font-size: clamp(2.5rem,5vw,4rem);
+  color:var(--accent); line-height:1;
+}
+
+/* ── Form inputs ── */
+.form-input {
+  width:100%; background:var(--background);
+  border:1.5px solid var(--border); border-radius:.75rem;
+  padding:14px 18px; font-size:.9rem;
+  font-family:"Outfit",sans-serif; color:var(--foreground);
+  transition:border-color .3s ease, box-shadow .3s ease; outline:none;
+}
+.form-input:focus {
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(200,169,110,.15);
+}
+.form-input::placeholder { color:var(--muted-foreground); }
+
+/* ── Nav progress ── */
+.nav-progress {
+  position:fixed; top:0; left:0; height:3px;
+  background:linear-gradient(90deg,var(--accent),#f0d898);
+  z-index:200; transition:width .1s linear;
+  pointer-events:none;
+}
+
+/* ── Badge ── */
+.badge {
+  display:inline-flex; align-items:center; gap:4px;
+  padding:4px 12px; border-radius:999px;
+  font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+}
+.badge-gold { background:rgba(200,169,110,.15); color:var(--accent); border:1px solid rgba(200,169,110,.3); }
+.badge-dark { background:rgba(255,255,255,.1); color:rgba(255,255,255,.85); border:1px solid rgba(255,255,255,.15); }
+
+/* ── Ticker ── */
+.ticker-wrap {
+  overflow:hidden;
+  border-top:1px solid rgba(200,169,110,.18);
+  border-bottom:1px solid rgba(200,169,110,.18);
+}
+
+/* ── Animated underline ── */
+.animated-underline { position:relative; display:inline-block; }
+.animated-underline::after {
+  content:""; position:absolute; bottom:-2px; left:0;
+  width:0; height:2px; background:var(--accent);
+  transition:width .4s var(--ease-expo);
+}
+.animated-underline:hover::after { width:100%; }
