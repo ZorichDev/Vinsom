@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle, Phone } from "lucide-react";
 import logo from "@/assets/vinsom-logo.jpeg";
@@ -15,6 +15,12 @@ const navItems = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  // Only the home page has a dark hero behind the navbar
+  const isHome = pathname === "/";
+  // Navbar is "dark mode" only when on home page AND not yet scrolled
+  const isDark = isHome && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -33,10 +39,10 @@ export function Header() {
       <header
         className="fixed top-0 inset-x-0 z-50 transition-all duration-500"
         style={{
-          background: scrolled ? "rgba(250,249,247,0.88)" : "transparent",
-          backdropFilter: scrolled ? "blur(24px)" : "none",
-          WebkitBackdropFilter: scrolled ? "blur(24px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(232,227,220,0.7)" : "none",
+          background: isDark ? "transparent" : "rgba(250,249,247,0.95)",
+          backdropFilter: isDark ? "none" : "blur(24px)",
+          WebkitBackdropFilter: isDark ? "none" : "blur(24px)",
+          borderBottom: isDark ? "none" : "1px solid rgba(232,227,220,0.7)",
           boxShadow: scrolled ? "0 2px 24px rgba(15,14,12,0.06)" : "none",
         }}
       >
@@ -64,7 +70,7 @@ export function Header() {
                 className="font-bold text-xl tracking-tight"
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
-                  color: scrolled ? "var(--primary)" : "white",
+                  color: isDark ? "white" : "var(--primary)",
                   transition: "color 0.4s ease",
                 }}
               >
@@ -73,7 +79,7 @@ export function Header() {
               <div
                 className="text-[9px] uppercase tracking-[0.25em] -mt-0.5 font-medium"
                 style={{
-                  color: scrolled ? "var(--muted-foreground)" : "rgba(255,255,255,0.65)",
+                  color: isDark ? "rgba(255,255,255,0.65)" : "var(--muted-foreground)",
                   transition: "color 0.4s ease",
                 }}
               >
@@ -91,17 +97,15 @@ export function Header() {
                 end={item.to === "/"}
                 className={({ isActive }) =>
                   `animated-underline relative px-4 py-2 text-sm font-medium transition-colors duration-300 ${
-                    isActive
-                      ? "font-semibold"
-                      : ""
+                    isActive ? "font-semibold" : ""
                   }`
                 }
                 style={({ isActive }) => ({
                   color: isActive
                     ? "var(--accent)"
-                    : scrolled
-                    ? "var(--foreground)"
-                    : "rgba(255,255,255,0.85)",
+                    : isDark
+                    ? "rgba(255,255,255,0.85)"
+                    : "var(--foreground)",
                 })}
               >
                 {item.label}
@@ -115,8 +119,8 @@ export function Header() {
               href="tel:+234800000000"
               className="hidden xl:flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
               style={{
-                color: scrolled ? "var(--foreground)" : "rgba(255,255,255,0.8)",
-                border: scrolled ? "1px solid var(--border)" : "1px solid rgba(255,255,255,0.2)",
+                color: isDark ? "rgba(255,255,255,0.8)" : "var(--foreground)",
+                border: isDark ? "1px solid rgba(255,255,255,0.2)" : "1px solid var(--border)",
               }}
             >
               <Phone className="h-3.5 w-3.5" /> +234 800 000 0000
@@ -134,7 +138,7 @@ export function Header() {
             <button
               onClick={() => setOpen((v) => !v)}
               className="lg:hidden p-2 rounded-xl transition-colors"
-              style={{ color: scrolled ? "var(--foreground)" : "white" }}
+              style={{ color: isDark ? "white" : "var(--foreground)" }}
               aria-label="Toggle menu"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

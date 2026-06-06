@@ -13,14 +13,14 @@
   --primary:          #1a1a2e;
   --primary-mid:      #16213e;
   --primary-foreground: #faf9f7;
-  --accent:           #c8a96e;
+  --accent:           #F7930A;
   --accent-light:     #e8d5b0;
   --accent-foreground: #0f0e0c;
   --secondary:        #f4f1ec;
   --muted:            #f0ede8;
   --muted-foreground: #6b6560;
   --border:           #e8e3dc;
-  --whatsapp:         #25D366;
+  --whatsapp:         #1A1A1A;
   --whatsapp-foreground: #ffffff;
 
   --shadow-sm:   0 2px 8px rgba(15,14,12,0.06);
@@ -79,13 +79,13 @@
   background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 55%, #16213e 100%) !important;
 }
 .bg-gradient-gold {
-  background: linear-gradient(135deg, #c8a96e 0%, #e8c97a 50%, #f0d898 100%) !important;
+  background: linear-gradient(135deg, #F7930A 0%, #e8c97a 50%, #f0d898 100%) !important;
 }
 .bg-gradient-soft {
   background: linear-gradient(180deg, var(--background) 0%, #f0ede8 100%) !important;
 }
 .bg-gradient-warm {
-  background: linear-gradient(135deg, #c8a96e 0%, #e8d5b0 100%) !important;
+  background: linear-gradient(135deg, #F7930A 0%, #e8d5b0 100%) !important;
 }
 .text-gradient {
   background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -94,7 +94,7 @@
   color: transparent !important;
 }
 .text-gradient-gold {
-  background: linear-gradient(135deg, #c8a96e, #f0d898, #c8a96e);
+  background: linear-gradient(135deg, #F7930A, #f0d898, #F7930A);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent !important;

@@ -88,8 +88,9 @@ const processSteps = [
 export default function HomePage() {
   return (
     <>
+   
       {/* ── HERO ── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden -mt-[72px]">  
         {/* Background */}
         <div className="absolute inset-0">
           <img src={heroImg} alt="Luxury lit interior" className="h-full w-full object-cover" />
@@ -143,7 +144,7 @@ export default function HomePage() {
               <span
                 className="clip-text"
                 style={{
-                  background: "linear-gradient(135deg, #c8a96e 0%, #f0d898 50%, #c8a96e 100%)",
+                  background: "linear-gradient(135deg, #FFD700 0%, #f0d898 50%, #FFD700 100%)",
                   WebkitBackgroundClip: "text",
                   backgroundClip: "text",
                   color: "transparent",
