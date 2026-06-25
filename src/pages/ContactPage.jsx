@@ -7,7 +7,7 @@ const UNSPLASH_HERO = "https://images.unsplash.com/photo-1497366811353-6870744d0
 
 const contactInfo = [
   { icon: MapPin,        label: "Visit Us",      value: "Lagos, Nigeria (Showroom by appointment)", sub: "Nationwide service available" },
-  { icon: Phone,         label: "Call Us",        value: "+234 800 000 0000",                        sub: "Mon – Sat, 8am – 6pm" },
+  { icon: Phone,         label: "Call Us",        value: "+2348038406250",                        sub: "Mon – Sat, 8am – 6pm" },
   { icon: Mail,          label: "Email Us",       value: "info@vinsomconcepts.com",                  sub: "Reply within 24 hours" },
   { icon: MessageCircle, label: "WhatsApp",       value: "Chat instantly with our team",             sub: "Fastest way to reach us" },
   { icon: Clock,         label: "Working Hours",  value: "Monday – Saturday",                        sub: "8:00 AM – 6:00 PM WAT" },
@@ -182,7 +182,7 @@ ${form.message}`;
                     </label>
                     <input
                       name="phone" type="tel" required value={form.phone} onChange={handleChange}
-                      placeholder="+234 800 000 0000"
+                      placeholder="+2348038406250"
                       className="form-input"
                     />
                   </div>

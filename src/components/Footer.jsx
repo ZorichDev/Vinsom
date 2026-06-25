@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, MessageCircle, Mail, Instagram, Facebook, Twitter, ArrowRight, Zap } from "lucide-react";
-import logo from "@/assets/vinsom-logo.jpeg";
+import logo from "@/assets/vinsom-logo.jpg";
 import { whatsappLink, DEFAULT_ORDER_TEMPLATE } from "@/lib/whatsapp";
 
 const navLinks = [
@@ -195,7 +195,7 @@ export function Footer() {
             <ul className="space-y-4">
               {[
                 { icon: MapPin, text: "Lagos, Nigeria (Nationwide)" },
-                { icon: Phone, text: "+234 800 000 0000" },
+                { icon: Phone, text: "+2348038406250" },
                 { icon: Mail, text: "info@vinsomconcepts.com" },
               ].map(({ icon: Icon, text }) => (
                 <li key={text} className="flex items-start gap-3 text-sm" style={{ color: "rgba(255,255,255,0.65)" }}>

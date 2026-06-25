@@ -1,7 +1,7 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle, Phone } from "lucide-react";
-import logo from "@/assets/vinsom-logo.jpeg";
+import logo from "@/assets/vinsom-logo.jpg";
 import { whatsappLink, DEFAULT_ORDER_TEMPLATE } from "@/lib/whatsapp";
 
 const navItems = [
@@ -116,14 +116,14 @@ export function Header() {
           {/* CTA */}
           <div className="flex items-center gap-2">
             <a
-              href="tel:+234800000000"
+              href="tel:+2348038406250"
               className="hidden xl:flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
               style={{
                 color: isDark ? "rgba(255,255,255,0.8)" : "var(--foreground)",
                 border: isDark ? "1px solid rgba(255,255,255,0.2)" : "1px solid var(--border)",
               }}
             >
-              <Phone className="h-3.5 w-3.5" /> +234 800 000 0000
+              <Phone className="h-3.5 w-3.5" /> +2348038406250
             </a>
             <a
               href={whatsappLink(DEFAULT_ORDER_TEMPLATE)}
